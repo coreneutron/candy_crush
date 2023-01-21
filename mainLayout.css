@@ -1,0 +1,127 @@
+/* Your css code here! */
+body {
+	background-image: url("candy-crush-background-2.png");
+	text-align: center;
+	font-weight: bold;
+}
+
+.title{
+	display:flex; 
+	align-items:center; 
+	margin: auto;
+}
+img {
+	position: absolute;
+}
+
+.btn {
+	margin: 5px;
+	border: 1px solid #666666;
+	box-shadow: 1px 1px 5px gray;
+}
+
+.btn:hover {
+	background-color: #8c8c8c;
+}
+
+.arrow {
+	margin: 0;
+	color: white;
+}
+
+.arrow:disabled {
+	background-color: grey;
+}
+
+.arrow:enabled {
+	background-color: #4889f0;
+}
+
+#firstColumn, #mainColumn, #lastColumn {
+	margin: auto;
+}
+
+#firstColumn {
+	z-index: 3;
+	display: flex; 
+	align-items: center; 
+	text-align: center;
+}
+
+#gameTitle {
+	font-weight: bold;
+	color: red;
+}
+
+#gameBoard {
+	z-index: 1;
+	margin: auto;
+	width: 320px;
+	height: 320px;
+	table-layout: fixed;
+	position: relative;
+}
+
+#moveInput {
+	width: 50px;
+}
+
+#moveInput:hover, #moveInput:focus {
+	box-shadow: 0 0 5px blue;
+}
+
+#arrowContainer {
+	margin: 20px auto;
+}
+
+#canvas {
+	z-index: 10;
+	position: absolute;
+	top: 10px;
+	left: calc(50% - 160px);
+	opacity: 0.7;
+	box-shadow: 0 2px 4px rgb(0 0 0 / 50%) inset, 0 1px 0 #fff;
+	border-radius: 10px
+}
+
+#scoreLabel {
+	background-color: lightgreen !important;
+	border-radius: 10px;
+	color: #26221d !important;
+	width: 100%;
+	padding: 8px 20px;
+}
+
+#cover {
+	z-index: 2;
+	position: absolute;
+	/* top: -500px; */
+	left: calc(50% - 180px);
+	/* background-color: white; */
+	width: 0px;
+	height: 320px;
+}
+
+#newGame, #showMove {
+	width: 10em;
+}
+
+#DEBUG {
+	z-index: 100;
+	position: fixed;
+	top: 50px;
+	left: 25px;
+	background-color: #ff4d4d;
+	opacity: 0.85;
+}
+
+@media only screen and (orientation: landscape) {
+  .root {
+    display: flex;
+  }
+	.title{
+		display:block; 
+		align-items:center; 
+		margin: auto;
+	}
+}
