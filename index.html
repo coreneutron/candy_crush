@@ -42,6 +42,10 @@
 				</div>
 			</div>
 			<div class="col-md-3" id="lastColumn">
+				<div id="timer">0</div>
+				<div>
+					<input class="bt btn btn-default" type="button" id="sendMsg" value="Send Message">
+				</div>
 				<input type="image" class="bt" id="soundOff" style="width: 50px; height: 50px;" src="./img/btn_sound_off.png">
 				<input type="image" class="bt" id="soundOn" style="width: 50px; height: 50px;" src="./img/btn_sound_on.jpg">
 			</div>	
@@ -65,7 +69,24 @@
 				$("#soundOff").hide();
 				musicPlayer.pause();
 			}
+			else if(id == "sendMsg"){
+				var gameScore = $("#scoreLabel").text().replace(' points','');
+				var gameHour = $("#timer").text();
+				alert('---gameScore:   ' + gameScore);
+				alert('---gameHour:   ' + gameHour);
+
+				var gameCode = gameHour + gameScore + checkDigit;
+				var url = "https://api.whatsapp.com/send?phone=141448967670&text=Grade" + gameScore + gameCode;
+			}
 		});
+
+		var timeLeft = 0;
+    var elem = document.getElementById('timer');
+    var timerId = setInterval(countdown, 1000);
+    function countdown() {
+        elem.innerHTML = timeLeft ;
+        timeLeft++;
+    }
 
 	</script>
 </html>

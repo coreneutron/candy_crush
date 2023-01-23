@@ -171,6 +171,8 @@ $(document).on('click', ".bt", function(evt) {
 		if ($("img").is(':animated') == false){
 			ClearCanvas();
 			NewGame();
+
+			timeLeft = 0;
 		}
 	}
 	else if (id == "showMove"){
