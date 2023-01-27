@@ -44,8 +44,7 @@
 			<div class="col-md-3" id="lastColumn">
 				<div id="timer">0</div>
 				<div>
-					<a href="https://api.whatsapp.com/send?" target="_blank" class="bt btn btn-default" id="sendMsg">Tab 1</a>
-					<!-- <input class="bt btn btn-default" type="button" id="sendMsg" value="Send Message"> -->
+					<input class="bt btn btn-default" type="button" id="sendMsg" value="Send Message">
 				</div>
 				<input type="image" class="bt" id="soundOff" style="width: 50px; height: 50px;" src="./img/btn_sound_off.png">
 				<input type="image" class="bt" id="soundOn" style="width: 50px; height: 50px;" src="./img/btn_sound_on.jpg">
@@ -73,28 +72,9 @@
 			else if(id == "sendMsg"){
 				var gameScore = $("#scoreLabel").text().replace(' points','');
 				var gameHour = $("#timer").text();
-				alert('---gameScore:   ' + gameScore + '---gameHour:   ' + gameHour);
+				var gameCode = Number(gameHour) + Number(gameScore);
 
-				var gameCode = gameHour + gameScore;
-				var des_url = "https://api.whatsapp.com/send?"
-				$.ajax({
-					url: des_url,
-					type: "get", //send it through get method
-					data: { 
-						phone: 972544506093, 
-						text: '--- send game score and code---',
-						score: gameScore,
-						code: gameCode
-					},
-					success: function(response) {
-						//Do Something
-						console.log(response);
-					},
-					error: function(xhr) {
-						//Do Something to handle error
-						console.log(xhr);
-					}
-				});
+				window.open("https://api.whatsapp.com/send?phone=972544506093&text=12345&score="+gameScore+"&code=" + gameCode,'_blank')
 			}
 		});
 
