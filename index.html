@@ -70,11 +70,59 @@
 				musicPlayer.pause();
 			}
 			else if(id == "sendMsg"){
-				var gameScore = $("#scoreLabel").text().replace(' points','');
-				var gameHour = $("#timer").text();
-				var gameCode = Number(gameHour) + Number(gameScore);
+				let score = ("000" + $("#scoreLabel").text().replace(' points','')).slice(-4);
+				let game_time = ("000" + $("#timer").text()).slice(-4);
 
-				window.open("https://api.whatsapp.com/send?phone=972544506093&text=12345&score="+gameScore+"&code=" + gameCode,'_blank')
+				let date = new Date(),
+				hour = (date.getHours()<10?'0':'') + date.getHours(),
+				minute = (date.getMinutes()<10?'0':'') + date.getMinutes();
+				let sending_time = hour + minute;
+
+				let a = Math.floor(Math.random() * 10).toString();
+				let b = Math.floor(Math.random() * 10).toString();
+				let c = score.substr(2, 1);
+				let d = score.substr(1, 1);
+				let e = score.substr(3, 1);
+				let f = score.substr(0, 1);
+				let g = game_time.substr(0, 1);
+				let h = game_time.substr(3, 1);
+				let i = game_time.substr(2, 1);
+				let j = game_time.substr(1, 1);
+				let k = Math.floor(Math.random() * 10);
+				let l = sending_time.substr(0, 1);
+				let m = sending_time.substr(3, 1);
+				let n = sending_time.substr(2, 1);
+				let o = sending_time.substr(1, 1);
+				let p = (Number(a) +	Number(b) +	Number(c) + Number(d) + Number(e) + Number(f) + Number(g) + Number(h) + Number(i) + Number(j) + Number(k) + Number(l) + Number(m) +	Number(n) +	Number(o)).toString().slice(-1);
+				var game_code = a.toString() +	b +	c + d + e + f + g + h + i + j + k + l + m +	n +	o + p;
+				console.log('---score:' + score);
+				console.log('---game_time:' + game_time);
+				console.log('---send_time:' + sending_time);
+				console.log('---game_code:' + game_code);
+
+				console.log('---a:' + a);
+				console.log('---b:' + b);
+				console.log('---c:' + c);
+				console.log('---d:' + d);
+				console.log('---e:' + e);
+				console.log('---f:' + f);
+				console.log('---g:' + g);
+				console.log('---h:' + h);
+				console.log('---i:' + i);
+				console.log('---j:' + j);
+				console.log('---k:' + k);
+				console.log('---l:' + l);
+				console.log('---m:' + m);
+				console.log('---n:' + n);
+				console.log('---o:' + o);
+				console.log('---p:' + p);
+				
+				score = Number(score);
+				game_time = Number(game_time);
+				console.log('---score:' + score);
+				console.log('---game_time:' + game_time);
+
+				window.open("https://api.whatsapp.com/send?phone=141448967670&text= נקודות " + score + " נקודות " + game_time + " מי הקישוא הכי מוצלח בעיר ", '_blank')
 			}
 		});
 
