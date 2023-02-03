@@ -158,7 +158,8 @@ var Rules = function(board)
         }
         board.remove(set[k]);
       }
-      new Audio('./music/' + 1 + '.wav').play();
+      var soundEffect = Math.floor(Math.random() * 10) + 1;
+      new Audio('./music/' + soundEffect + '.mp3').play();
     }
   }
 

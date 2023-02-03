@@ -16,10 +16,15 @@
 		<script src="board.js"></script>
 		<script src="rules.js"></script>
 		<script src="handler.js"></script>
+		<style>
+			#sendMsg{
+				height: 200px;
+				width: auto;
+			}
+		</style>
 	</head>
 
 	<body>
-		<audio id="audio" src="./music/main.mp3"></audio>
 		<div class="root">
 			<div class="col-md-3" id="firstColumn">
 				<div class="title">
@@ -28,7 +33,7 @@
 					<!-- <div>
 					</div> -->
 					<!-- <input class="btn btn-default" type="button" id="newGame" value="New Game"> -->
-					<input type="image" class="bt" id="newGame" src="./img/btn_newgame.png">
+					<input type="image" class="bt bt-newGame" id="newGame" src="./img/z1.png">
 				</div>
 			</div>
 			
@@ -44,7 +49,7 @@
 			<div class="col-md-3" id="lastColumn">
 				<div id="timer">0</div>
 				<div>
-					<input class="bt btn btn-default" type="button" id="sendMsg" value="Send Message">
+					<input type="image" class="bt bt-newGame" id="sendMsg" src="./img/r1.png">
 				</div>
 				<input type="image" class="bt" id="soundOff" style="width: 50px; height: 50px;" src="./img/btn_sound_off.png">
 				<input type="image" class="bt" id="soundOn" style="width: 50px; height: 50px;" src="./img/btn_sound_on.jpg">
@@ -70,6 +75,10 @@
 				musicPlayer.pause();
 			}
 			else if(id == "sendMsg"){
+				var img = document.getElementById("sendMsg");
+				img.src="img/r3.gif";
+
+
 				let score = ("000" + $("#scoreLabel").text().replace(' points','')).slice(-4);
 				let game_time = ("000" + $("#timer").text()).slice(-4);
 
@@ -94,35 +103,12 @@
 				let n = sending_time.substr(2, 1);
 				let o = sending_time.substr(1, 1);
 				let p = (Number(a) +	Number(b) +	Number(c) + Number(d) + Number(e) + Number(f) + Number(g) + Number(h) + Number(i) + Number(j) + Number(k) + Number(l) + Number(m) +	Number(n) +	Number(o)).toString().slice(-1);
-				var game_code = a.toString() +	b +	c + d + e + f + g + h + i + j + k + l + m +	n +	o + p;
-				console.log('---score:' + score);
-				console.log('---game_time:' + game_time);
-				console.log('---send_time:' + sending_time);
-				console.log('---game_code:' + game_code);
-
-				console.log('---a:' + a);
-				console.log('---b:' + b);
-				console.log('---c:' + c);
-				console.log('---d:' + d);
-				console.log('---e:' + e);
-				console.log('---f:' + f);
-				console.log('---g:' + g);
-				console.log('---h:' + h);
-				console.log('---i:' + i);
-				console.log('---j:' + j);
-				console.log('---k:' + k);
-				console.log('---l:' + l);
-				console.log('---m:' + m);
-				console.log('---n:' + n);
-				console.log('---o:' + o);
-				console.log('---p:' + p);
 				
+				var game_code = a.toString() +	b +	c + d + e + f + g + h + i + j + k + l + m +	n +	o + p;
 				score = Number(score);
 				game_time = Number(game_time);
-				console.log('---score:' + score);
-				console.log('---game_time:' + game_time);
 
-				window.open("https://api.whatsapp.com/send?phone=141448967670&text= נקודות " + score + " נקודות " + game_time + " מי הקישוא הכי מוצלח בעיר ", '_blank')
+				window.open("https://api.whatsapp.com/send?phone=972544506093&text= מי הקישוא הכי מוצלח בעיר "+ score + " נקודות "+game_time + " שניות " + "***" + game_code + "***", '_blank')
 			}
 		});
 

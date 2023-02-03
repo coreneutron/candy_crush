@@ -168,6 +168,9 @@ $(document).on('click', ".bt", function(evt) {
 	var id = evt.target.id;
 	
 	if (id == "newGame") {
+		var img = document.getElementById("newGame");
+		img.src="img/z3.gif";
+
 		if ($("img").is(':animated') == false){
 			ClearCanvas();
 			NewGame();
