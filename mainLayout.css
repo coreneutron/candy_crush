@@ -1,6 +1,7 @@
 /* Your css code here! */
 body {
 	background-image: url("candy-crush-background-2.png");
+	background-size: cover !important;
 	text-align: center;
 	font-weight: bold;
 }
@@ -134,5 +135,14 @@ img {
 		display:block; 
 		align-items:center; 
 		margin: auto;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	body{
+		background-size: inherit !important;
+	}
+	#sendMsg{
+		height: 100px !important;
 	}
 }
